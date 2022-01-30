@@ -1,0 +1,56 @@
+{
+	"name": "eMyLoader",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-tick",
+					"objectClass": "System",
+					"sid": 840677312738249
+				}
+			],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "txt_loaderPercent",
+					"sid": 966824230848284,
+					"parameters": {
+						"text": "round(loadingprogress * 100) & \"%\""
+					}
+				}
+			],
+			"sid": 894225292563848
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-loader-layout-complete",
+					"objectClass": "System",
+					"sid": 932731053687640
+				}
+			],
+			"actions": [
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 463863629112147,
+					"parameters": {
+						"seconds": "1.0"
+					}
+				},
+				{
+					"id": "go-to-layout-by-name",
+					"objectClass": "System",
+					"sid": 645464911233875,
+					"parameters": {
+						"layout": "\"GAbewertung\""
+					}
+				}
+			],
+			"sid": 960204929107971
+		}
+	],
+	"sid": 233552569361471
+}

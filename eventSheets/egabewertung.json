@@ -1,0 +1,1398 @@
+{
+	"name": "eGAbewertung",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "myProgress",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 235988606435341
+		},
+		{
+			"eventType": "variable",
+			"name": "toggleBad",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 744848671531747
+		},
+		{
+			"eventType": "variable",
+			"name": "toggleGood",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 817170721770919
+		},
+		{
+			"eventType": "comment",
+			"text": "Initial Page Setup"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-any-click",
+					"objectClass": "Mouse",
+					"sid": 463091167554919
+				}
+			],
+			"actions": [
+				{
+					"id": "set-group-active",
+					"objectClass": "System",
+					"sid": 530521046662157,
+					"parameters": {
+						"group-name": "\"Mouse\"",
+						"state": "activated"
+					}
+				},
+				{
+					"id": "set-group-active",
+					"objectClass": "System",
+					"sid": 354880487140359,
+					"parameters": {
+						"group-name": "\"Touch\"",
+						"state": "deactivated"
+					}
+				}
+			],
+			"sid": 995711334194251
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-in-touch",
+					"objectClass": "Touch",
+					"sid": 144745928090254
+				}
+			],
+			"actions": [
+				{
+					"id": "set-group-active",
+					"objectClass": "System",
+					"sid": 795043603532792,
+					"parameters": {
+						"group-name": "\"Mouse\"",
+						"state": "deactivated"
+					}
+				},
+				{
+					"id": "set-group-active",
+					"objectClass": "System",
+					"sid": 481794312329713,
+					"parameters": {
+						"group-name": "\"Touch\"",
+						"state": "activated"
+					}
+				}
+			],
+			"sid": 338907746769340
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 531713825419470
+				}
+			],
+			"actions": [
+				{
+					"id": "set-css-style",
+					"objectClass": "txt_1",
+					"sid": 431427855161784,
+					"parameters": {
+						"property-name": "\"text-align\"",
+						"value": "\"center\""
+					}
+				},
+				{
+					"id": "set-focused",
+					"objectClass": "txt_1",
+					"sid": 468864303577174
+				},
+				{
+					"id": "set-width",
+					"objectClass": "txt_1",
+					"sid": 353148590928240,
+					"parameters": {
+						"width": "25"
+					}
+				},
+				{
+					"id": "set-css-style",
+					"objectClass": "txt_2",
+					"sid": 777081111051171,
+					"parameters": {
+						"property-name": "\"text-align\"",
+						"value": "\"center\""
+					}
+				},
+				{
+					"id": "set-width",
+					"objectClass": "txt_2",
+					"sid": 491286158853752,
+					"parameters": {
+						"width": "25"
+					}
+				},
+				{
+					"id": "set-css-style",
+					"objectClass": "txt_3",
+					"sid": 314504250303716,
+					"parameters": {
+						"property-name": "\"text-align\"",
+						"value": "\"center\""
+					}
+				},
+				{
+					"id": "set-width",
+					"objectClass": "txt_3",
+					"sid": 752078590798467,
+					"parameters": {
+						"width": "25"
+					}
+				},
+				{
+					"id": "set-css-style",
+					"objectClass": "txt_4",
+					"sid": 650544762486259,
+					"parameters": {
+						"property-name": "\"text-align\"",
+						"value": "\"center\""
+					}
+				},
+				{
+					"id": "set-width",
+					"objectClass": "txt_4",
+					"sid": 715506489912999,
+					"parameters": {
+						"width": "25"
+					}
+				},
+				{
+					"id": "stop-animation",
+					"objectClass": "bewertung",
+					"sid": 812660495889816
+				},
+				{
+					"id": "set-animation-frame",
+					"objectClass": "BadSprite",
+					"sid": 728780847393786,
+					"parameters": {
+						"frame-number": "0"
+					}
+				},
+				{
+					"id": "set-animation-frame",
+					"objectClass": "GoodSprite",
+					"sid": 594909625965191,
+					"parameters": {
+						"frame-number": "0"
+					}
+				}
+			],
+			"sid": 752579351135031
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Mouse",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "comment",
+					"text": "Toggle good and bad symbols"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-object-clicked",
+							"objectClass": "Mouse",
+							"sid": 458710999765635,
+							"parameters": {
+								"mouse-button": "left",
+								"click-type": "clicked",
+								"object-clicked": "BadSprite"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "toggle-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 728709731667353,
+							"parameters": {
+								"variable": "toggleBad"
+							}
+						}
+					],
+					"sid": 593861456987938,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 455359875985033,
+									"parameters": {
+										"variable": "toggleBad"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation-frame",
+									"objectClass": "BadSprite",
+									"sid": 413341539921469,
+									"parameters": {
+										"frame-number": "1"
+									}
+								},
+								{
+									"id": "call-function",
+									"objectClass": "Function",
+									"sid": 141226100502952,
+									"parameters": {
+										"name": "\"BerechneNote\"",
+										"parameter-n": []
+									}
+								}
+							],
+							"sid": 514670971551093
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 942436528484391
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation-frame",
+									"objectClass": "BadSprite",
+									"sid": 261898580861456,
+									"parameters": {
+										"frame-number": "0"
+									}
+								},
+								{
+									"id": "call-function",
+									"objectClass": "Function",
+									"sid": 771791338871091,
+									"parameters": {
+										"name": "\"BerechneNote\"",
+										"parameter-n": []
+									}
+								}
+							],
+							"sid": 841384813761522
+						}
+					],
+					"isOrBlock": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-object-clicked",
+							"objectClass": "Mouse",
+							"sid": 265388250827816,
+							"parameters": {
+								"mouse-button": "left",
+								"click-type": "clicked",
+								"object-clicked": "GoodSprite"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "toggle-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 312672019991368,
+							"parameters": {
+								"variable": "toggleGood"
+							}
+						}
+					],
+					"sid": 705932687590323,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 682192443431042,
+									"parameters": {
+										"variable": "toggleGood"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation-frame",
+									"objectClass": "GoodSprite",
+									"sid": 797257420140682,
+									"parameters": {
+										"frame-number": "1"
+									}
+								},
+								{
+									"id": "call-function",
+									"objectClass": "Function",
+									"sid": 883392943830057,
+									"parameters": {
+										"name": "\"BerechneNote\"",
+										"parameter-n": []
+									}
+								}
+							],
+							"sid": 705709360837195
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 255844752373960
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation-frame",
+									"objectClass": "GoodSprite",
+									"sid": 431039944278167,
+									"parameters": {
+										"frame-number": "0"
+									}
+								},
+								{
+									"id": "call-function",
+									"objectClass": "Function",
+									"sid": 337842327444319,
+									"parameters": {
+										"name": "\"BerechneNote\"",
+										"parameter-n": []
+									}
+								}
+							],
+							"sid": 435093044299841
+						}
+					],
+					"isOrBlock": true
+				}
+			],
+			"sid": 560298223575457
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Touch",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "comment",
+					"text": "Toggle good and bad symbols"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-touched-object",
+							"objectClass": "Touch",
+							"sid": 154116753701785,
+							"parameters": {
+								"object": "BadSprite"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "toggle-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 576618709683795,
+							"parameters": {
+								"variable": "toggleBad"
+							}
+						}
+					],
+					"sid": 287017419321287,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 131522381095547,
+									"parameters": {
+										"variable": "toggleBad"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation-frame",
+									"objectClass": "BadSprite",
+									"sid": 440345452251465,
+									"parameters": {
+										"frame-number": "1"
+									}
+								},
+								{
+									"id": "call-function",
+									"objectClass": "Function",
+									"sid": 983536271699975,
+									"parameters": {
+										"name": "\"BerechneNote\"",
+										"parameter-n": []
+									}
+								}
+							],
+							"sid": 114254665627106
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 654107031853437
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation-frame",
+									"objectClass": "BadSprite",
+									"sid": 791625854263617,
+									"parameters": {
+										"frame-number": "0"
+									}
+								},
+								{
+									"id": "call-function",
+									"objectClass": "Function",
+									"sid": 119535397919253,
+									"parameters": {
+										"name": "\"BerechneNote\"",
+										"parameter-n": []
+									}
+								}
+							],
+							"sid": 578618401776329
+						}
+					],
+					"isOrBlock": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-touched-object",
+							"objectClass": "Touch",
+							"sid": 205997776811177,
+							"parameters": {
+								"object": "GoodSprite"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "toggle-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 438145393023846,
+							"parameters": {
+								"variable": "toggleGood"
+							}
+						}
+					],
+					"sid": 941690580299113,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 113006345136817,
+									"parameters": {
+										"variable": "toggleGood"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation-frame",
+									"objectClass": "GoodSprite",
+									"sid": 256776960629177,
+									"parameters": {
+										"frame-number": "1"
+									}
+								},
+								{
+									"id": "call-function",
+									"objectClass": "Function",
+									"sid": 718240444201384,
+									"parameters": {
+										"name": "\"BerechneNote\"",
+										"parameter-n": []
+									}
+								}
+							],
+							"sid": 765064421889717
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 623661958511150
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation-frame",
+									"objectClass": "GoodSprite",
+									"sid": 355290016832598,
+									"parameters": {
+										"frame-number": "0"
+									}
+								},
+								{
+									"id": "call-function",
+									"objectClass": "Function",
+									"sid": 452515022925386,
+									"parameters": {
+										"name": "\"BerechneNote\"",
+										"parameter-n": []
+									}
+								}
+							],
+							"sid": 428559561797702
+						}
+					],
+					"isOrBlock": true
+				}
+			],
+			"sid": 460431503338118
+		},
+		{
+			"eventType": "comment",
+			"text": "On Input Change Calculation"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-text-changed",
+					"objectClass": "txt_1",
+					"sid": 158657816730337
+				}
+			],
+			"actions": [
+				{
+					"id": "call-function",
+					"objectClass": "Function",
+					"sid": 495985880747687,
+					"parameters": {
+						"name": "\"BerechneNote\"",
+						"parameter-n": []
+					}
+				},
+				{
+					"id": "call-function",
+					"objectClass": "Function",
+					"sid": 114277477211306,
+					"parameters": {
+						"name": "\"SetBewertung\"",
+						"parameter-n": [
+							"5",
+							"txt_1.Text"
+						]
+					}
+				}
+			],
+			"sid": 340981739835297
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-text-changed",
+					"objectClass": "txt_2",
+					"sid": 912638164233018
+				}
+			],
+			"actions": [
+				{
+					"id": "call-function",
+					"objectClass": "Function",
+					"sid": 169238532150112,
+					"parameters": {
+						"name": "\"BerechneNote\"",
+						"parameter-n": []
+					}
+				},
+				{
+					"id": "call-function",
+					"objectClass": "Function",
+					"sid": 679665003412492,
+					"parameters": {
+						"name": "\"SetBewertung\"",
+						"parameter-n": [
+							"20",
+							"txt_2.Text"
+						]
+					}
+				}
+			],
+			"sid": 495619822372853
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-text-changed",
+					"objectClass": "txt_3",
+					"sid": 300257860166334
+				}
+			],
+			"actions": [
+				{
+					"id": "call-function",
+					"objectClass": "Function",
+					"sid": 391952142880139,
+					"parameters": {
+						"name": "\"BerechneNote\"",
+						"parameter-n": []
+					}
+				},
+				{
+					"id": "call-function",
+					"objectClass": "Function",
+					"sid": 948007982150353,
+					"parameters": {
+						"name": "\"SetBewertung\"",
+						"parameter-n": [
+							"21",
+							"txt_3.Text"
+						]
+					}
+				}
+			],
+			"sid": 242515950649815
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-text-changed",
+					"objectClass": "txt_4",
+					"sid": 612895154697119
+				}
+			],
+			"actions": [
+				{
+					"id": "call-function",
+					"objectClass": "Function",
+					"sid": 390806763422400,
+					"parameters": {
+						"name": "\"BerechneNote\"",
+						"parameter-n": []
+					}
+				},
+				{
+					"id": "call-function",
+					"objectClass": "Function",
+					"sid": 195531787471165,
+					"parameters": {
+						"name": "\"SetBewertung\"",
+						"parameter-n": [
+							"22",
+							"txt_4.Text"
+						]
+					}
+				}
+			],
+			"sid": 239210400424028
+		},
+		{
+			"eventType": "comment",
+			"text": "Function: BerechneNote (-> zählt alle Punkte und berechnet die Note)"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-function",
+					"objectClass": "Function",
+					"sid": 812371283716454,
+					"parameters": {
+						"name": "\"BerechneNote\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 557848039624522,
+					"parameters": {
+						"variable": "myProgress",
+						"value": "0"
+					}
+				},
+				{
+					"id": "add-to-eventvar",
+					"objectClass": "System",
+					"sid": 406151314611881,
+					"parameters": {
+						"variable": "myProgress",
+						"value": "int(txt_1.Text)"
+					}
+				},
+				{
+					"id": "add-to-eventvar",
+					"objectClass": "System",
+					"sid": 976336498650626,
+					"parameters": {
+						"variable": "myProgress",
+						"value": "int(txt_2.Text)"
+					}
+				},
+				{
+					"id": "add-to-eventvar",
+					"objectClass": "System",
+					"sid": 952128645965777,
+					"parameters": {
+						"variable": "myProgress",
+						"value": "int(txt_3.Text)"
+					}
+				},
+				{
+					"id": "add-to-eventvar",
+					"objectClass": "System",
+					"sid": 165225706933589,
+					"parameters": {
+						"variable": "myProgress",
+						"value": "int(txt_4.Text)*2"
+					}
+				}
+			],
+			"sid": 158588692867606,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 782309446270039,
+							"parameters": {
+								"variable": "toggleBad"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "subtract-from-eventvar",
+							"objectClass": "System",
+							"sid": 339678143050807,
+							"parameters": {
+								"variable": "myProgress",
+								"value": "5"
+							}
+						}
+					],
+					"sid": 623325695400058
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 518418963956613,
+							"parameters": {
+								"variable": "toggleGood"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 334350086750098,
+							"parameters": {
+								"variable": "myProgress",
+								"value": "5"
+							}
+						}
+					],
+					"sid": 269845882252078
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "txt_points",
+							"sid": 982608817016036,
+							"parameters": {
+								"text": "myProgress"
+							}
+						}
+					],
+					"sid": 509474822429735
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 551528949813686,
+							"parameters": {
+								"first-value": "myProgress",
+								"comparison": 4,
+								"second-value": "54"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "txt_note",
+							"sid": 488172383212850,
+							"parameters": {
+								"text": "1"
+							}
+						}
+					],
+					"sid": 345391281994770
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 739314355179319
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 816311469141262,
+							"parameters": {
+								"first-value": "myProgress",
+								"comparison": 4,
+								"second-value": "45"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "txt_note",
+							"sid": 543987129253342,
+							"parameters": {
+								"text": "2"
+							}
+						}
+					],
+					"sid": 994785489586667
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 815086038773729
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 753973665087410,
+							"parameters": {
+								"first-value": "myProgress",
+								"comparison": 4,
+								"second-value": "36"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "txt_note",
+							"sid": 369922586836173,
+							"parameters": {
+								"text": "3"
+							}
+						}
+					],
+					"sid": 294075042236250
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 852629672779644
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 594251049755960,
+							"parameters": {
+								"first-value": "myProgress",
+								"comparison": 4,
+								"second-value": "24"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "txt_note",
+							"sid": 807320708003359,
+							"parameters": {
+								"text": "4"
+							}
+						}
+					],
+					"sid": 295951979761186
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 189103064664599
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 229183915831669,
+							"parameters": {
+								"first-value": "myProgress",
+								"comparison": 4,
+								"second-value": "15"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "txt_note",
+							"sid": 663260684393616,
+							"parameters": {
+								"text": "5"
+							}
+						}
+					],
+					"sid": 106770557000234
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 923730663708550
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "txt_note",
+							"sid": 899436782607741,
+							"parameters": {
+								"text": "6"
+							}
+						}
+					],
+					"sid": 312031256472143
+				}
+			]
+		},
+		{
+			"eventType": "comment",
+			"text": "Function: SetBewertung (-> change picture next to txt field)"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-function",
+					"objectClass": "Function",
+					"sid": 281080257298440,
+					"parameters": {
+						"name": "\"SetBewertung\""
+					}
+				}
+			],
+			"actions": [],
+			"sid": 439796409402868,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 658465458448976,
+							"parameters": {
+								"first-value": "Function.Param(1)",
+								"comparison": 0,
+								"second-value": "\"0\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 530461018722709,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "bewertung",
+									"sid": 275888544000953,
+									"parameters": {
+										"unique-id": "Function.Param(0)"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation-frame",
+									"objectClass": "bewertung",
+									"sid": 741234264321451,
+									"parameters": {
+										"frame-number": "1"
+									}
+								}
+							],
+							"sid": 660727271767917
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 202643826987616
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 516686992130456,
+							"parameters": {
+								"first-value": "Function.Param(1)",
+								"comparison": 0,
+								"second-value": "\"3\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 570288742048397,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "bewertung",
+									"sid": 840944562562862,
+									"parameters": {
+										"unique-id": "Function.Param(0)"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation-frame",
+									"objectClass": "bewertung",
+									"sid": 588055980201452,
+									"parameters": {
+										"frame-number": "2"
+									}
+								}
+							],
+							"sid": 751332637398255
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 246713067985650
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 876121427078602,
+							"parameters": {
+								"first-value": "Function.Param(1)",
+								"comparison": 0,
+								"second-value": "\"6\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 475777519252796,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "bewertung",
+									"sid": 932924536005436,
+									"parameters": {
+										"unique-id": "Function.Param(0)"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation-frame",
+									"objectClass": "bewertung",
+									"sid": 546663506464974,
+									"parameters": {
+										"frame-number": "3"
+									}
+								}
+							],
+							"sid": 214728666283545
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 832411590926987
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 302779708685704,
+							"parameters": {
+								"first-value": "Function.Param(1)",
+								"comparison": 0,
+								"second-value": "\"9\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 681108808816851,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "bewertung",
+									"sid": 562847336573727,
+									"parameters": {
+										"unique-id": "Function.Param(0)"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation-frame",
+									"objectClass": "bewertung",
+									"sid": 236625197638784,
+									"parameters": {
+										"frame-number": "4"
+									}
+								}
+							],
+							"sid": 536224821267642
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 499070739904940
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 871606373948772,
+							"parameters": {
+								"first-value": "Function.Param(1)",
+								"comparison": 0,
+								"second-value": "\"12\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 928819144561285,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "bewertung",
+									"sid": 727201855776454,
+									"parameters": {
+										"unique-id": "Function.Param(0)"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation-frame",
+									"objectClass": "bewertung",
+									"sid": 847097625559889,
+									"parameters": {
+										"frame-number": "5"
+									}
+								}
+							],
+							"sid": 934448786946316
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 877326592403511
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 270351536395264,
+							"parameters": {
+								"first-value": "Function.Param(1)",
+								"comparison": 0,
+								"second-value": "\"\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 222326962746078,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "bewertung",
+									"sid": 646645481069211,
+									"parameters": {
+										"unique-id": "Function.Param(0)"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation-frame",
+									"objectClass": "bewertung",
+									"sid": 629487855709739,
+									"parameters": {
+										"frame-number": "0"
+									}
+								}
+							],
+							"sid": 400562973307181
+						}
+					]
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-portraitlandscape",
+					"objectClass": "Browser",
+					"sid": 626354623877195,
+					"parameters": {
+						"orientation": "portrait"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 592296988766075,
+					"parameters": {
+						"layer": "\"blackscreen\"",
+						"visibility": "visible"
+					}
+				}
+			],
+			"sid": 515737093665758
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-portraitlandscape",
+					"objectClass": "Browser",
+					"sid": 549592102418496,
+					"parameters": {
+						"orientation": "landscape"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 614943158860220,
+					"parameters": {
+						"layer": "\"blackscreen\"",
+						"visibility": "invisible"
+					}
+				}
+			],
+			"sid": 183423099938395
+		}
+	],
+	"sid": 497840710989565
+}

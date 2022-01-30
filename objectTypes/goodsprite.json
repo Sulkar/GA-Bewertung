@@ -1,0 +1,49 @@
+{
+	"name": "GoodSprite",
+	"plugin-id": "Sprite",
+	"sid": 828163286026839,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 118,
+						"height": 155,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 12,
+						"useCollisionPoly": true,
+						"duration": 1
+					},
+					{
+						"width": 118,
+						"height": 155,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 13,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 688412964379698,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 0
+			}
+		],
+		"subfolders": []
+	}
+}
